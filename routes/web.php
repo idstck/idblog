@@ -31,3 +31,5 @@ Route::post('password/reset', 'Auth\ResetPasswordController@reset');
 Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::resource('/admin/users', 'UsersController', ['as' => 'admin']);

@@ -35,7 +35,7 @@
             </a>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Users">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="{{ route('admin.users.index') }}">
             <i class="fa fa-fw fa-users"></i>
             <span class="nav-link-text">Users</span>
             </a>
