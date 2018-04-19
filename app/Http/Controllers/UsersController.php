@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Http\Request;
+use Yajra\Datatables\Datatables;
 
 class UsersController extends Controller
 {
@@ -80,5 +82,20 @@ class UsersController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function dataTable()
+    {
+        $users = User::query();
+        return DataTables::of($users)
+            ->addColumn('user', function ($users) {
+                return '<img src="' . asset('images/user-icon.png') . '" height="32" width="32">' .
+                $users->name;
+            })
+            ->addColumn('action', function ($users) {
+                return view('layouts.admin.partials._action');
+            })
+            ->rawColumns(['user', 'action'])
+            ->make(true);
     }
 }

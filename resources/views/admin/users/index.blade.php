@@ -44,33 +44,7 @@
                   </tr>
                 </tfoot>
                 <tbody>
-                  <tr>
-                    <td>1</td>
-                    <td>
-                      <img src="{{ asset('images/user-icon.png') }}" height="32" width="32">
-                      John Doe
-                    </td>
-                    <td>john@mail.com</td>
-                    <td>Contributor</td>
-                    <td>
-                      <a href="#" class="btn btn-sm btn-outline-info" style="padding-bottom: 0px; padding-top: 0px;">
-                          Show
-                          <span class="btn-label btn-label-right"><i class="fa fa-eye"></i></span>
-                      </a>
-                      <a href="#" class="btn btn-sm btn-outline-secondary" style="padding-bottom: 0px; padding-top: 0px;">
-                          Edit
-                          <span class="btn-label btn-label-right"><i class="fa fa-edit"></i></span>
-                      </a>
-                      <button  
-                          type="submit" class="btn btn-sm btn-outline-danger" 
-                          style="padding-bottom: 0px; padding-top: 0px;"
-                          onclick="return confirm('Are you sure you want to delete this item?');"
-                      >
-                          Delete
-                          <span class="btn-label btn-label-right"><i class="fa fa-trash"></i></span>
-                      </button>
-                    </td>
-                  </tr>
+                  
                 </tbody>
               </table>
             </div>
@@ -88,7 +62,18 @@
     <script src="{{ asset('assets/blog-admin/vendor/datatables/responsive.bootstrap4.min.js') }}"></script>
     <script>
         $(document).ready(function(){
-            $("#dataTable").DataTable()
+            $("#dataTable").DataTable({
+                processing: true,
+                serverSide: true,
+                ajax: "{{ route('api.datatable.users') }}",
+                columns: [
+                    {data: 'id', name: 'id'},
+                    {data: 'user', name: 'user'},
+                    {data: 'email', name: 'email'},
+                    {data: 'role', name: 'role'},
+                    {data: 'action', name: 'action', orderable: false, searchable: false}
+                ]
+            })
         });
     </script>
 @endsection
