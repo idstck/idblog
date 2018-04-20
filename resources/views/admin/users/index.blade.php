@@ -20,7 +20,7 @@
         <div class="card mb-3">
           <div class="card-header">
             <i class="fa fa-list"></i> Users
-            <a href="users-create.html" class="btn btn-sm btn-primary">Add New</a>
+            <a href="{{ route('admin.users.create') }}" class="btn btn-sm btn-primary">Add New</a>
           </div>
           <div class="card-body table-responsive">
             <div class="table-responsive">
