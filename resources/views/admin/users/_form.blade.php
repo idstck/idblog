@@ -19,7 +19,7 @@
     </div>
     <div class="form-group">
         <label for="password">Password</label>
-        {!! Form::password('password', ['class' => $errors->has('password') ? 'form-control is-invalid' : 'form-control', 'required']) !!}
+        {!! Form::password('password', ['class' => $errors->has('password') ? 'form-control is-invalid' : 'form-control']) !!}
         @if ($errors->has('password'))
             <span class="invalid-feedback">
                 <strong>{{ $errors->first('password') }}</strong>

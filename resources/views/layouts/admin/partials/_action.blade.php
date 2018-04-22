@@ -2,7 +2,7 @@
     Show
     <span class="btn-label btn-label-right"><i class="fa fa-eye"></i></span>
 </a>
-<a href="#" class="btn btn-sm btn-outline-secondary" style="padding-bottom: 0px; padding-top: 0px;">
+<a href="{{ $edit_url }}" class="btn btn-sm btn-outline-secondary" style="padding-bottom: 0px; padding-top: 0px;">
     Edit
     <span class="btn-label btn-label-right"><i class="fa fa-edit"></i></span>
 </a>

@@ -70,7 +70,8 @@ class UsersController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = User::findOrFail($id);
+        return view('admin.users.edit', compact('user'));
     }
 
     /**
@@ -82,7 +83,21 @@ class UsersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users,email,' . $id,
+            'password' => 'nullable|string|min:6',
+            'role' => 'required'
+        ]);
+
+        $user = User::findOrFail($id);
+
+        $request['password'] = $request->get('password') ? bcrypt($request->get('password')) : $user->password;
+        $request['avatar'] = $request->get('avatar') ? $request->get('avatar') : '/images/user-icon.png';
+        
+        $user->update($request->all());
+
+        return redirect()->route('admin.users.index');
     }
 
     /**
@@ -106,7 +121,8 @@ class UsersController extends Controller
             })
             ->addColumn('action', function ($users) {
                 return view('layouts.admin.partials._action', [
-                    'show_url' => route('admin.users.show', $users->id)
+                    'show_url' => route('admin.users.show', $users->id),
+                    'edit_url' => route('admin.users.edit', $users->id)
                 ]);
             })
             ->rawColumns(['user', 'action'])
