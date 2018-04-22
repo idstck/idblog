@@ -108,7 +108,8 @@ class UsersController extends Controller
      */
     public function destroy($id)
     {
-        //
+        if (! User::destroy($id)) return redirect()->back();
+        return redirect()->route('admin.users.index');
     }
 
     public function dataTable()
@@ -121,8 +122,10 @@ class UsersController extends Controller
             })
             ->addColumn('action', function ($users) {
                 return view('layouts.admin.partials._action', [
+                    'model' => $users,
                     'show_url' => route('admin.users.show', $users->id),
-                    'edit_url' => route('admin.users.edit', $users->id)
+                    'edit_url' => route('admin.users.edit', $users->id),
+                    'delete_url' => route('admin.users.destroy', $users->id),
                 ]);
             })
             ->rawColumns(['user', 'action'])
