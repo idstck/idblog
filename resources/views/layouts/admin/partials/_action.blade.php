@@ -1,4 +1,4 @@
-<a href="#" class="btn btn-sm btn-outline-info" style="padding-bottom: 0px; padding-top: 0px;">
+<a href="{{ $show_url }}" class="btn btn-sm btn-outline-info" style="padding-bottom: 0px; padding-top: 0px;">
     Show
     <span class="btn-label btn-label-right"><i class="fa fa-eye"></i></span>
 </a>

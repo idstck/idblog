@@ -58,7 +58,8 @@ class UsersController extends Controller
      */
     public function show($id)
     {
-        //
+        $user = User::findOrFail($id);
+        return view('admin.users.show', compact('user'));
     }
 
     /**
@@ -104,7 +105,9 @@ class UsersController extends Controller
                 $users->name;
             })
             ->addColumn('action', function ($users) {
-                return view('layouts.admin.partials._action');
+                return view('layouts.admin.partials._action', [
+                    'show_url' => route('admin.users.show', $users->id)
+                ]);
             })
             ->rawColumns(['user', 'action'])
             ->make(true);
