@@ -24,7 +24,7 @@
                 <a href="#">Add New</a>
             </li>
             <li>
-                <a href="#">Categories</a>
+                <a href="{{ route('admin.categories.index') }}">Categories</a>
             </li>
             </ul>
         </li>

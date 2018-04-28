@@ -33,5 +33,6 @@ Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('/admin/users', 'UsersController', ['as' => 'admin']);
+Route::resource('/admin/categories', 'CategoriesController', ['as' => 'admin']);
 
 Route::get('/api/datatable/users', 'UsersController@dataTable')->name('api.datatable.users');
