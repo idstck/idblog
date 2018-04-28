@@ -79,7 +79,16 @@ class CategoriesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'title' => 'required|string|min:3|unique:categories,title,' . $id
+        ]);
+        $request['slug'] = str_slug($request->get('title'), '-');
+
+        $category = Category::findOrFail($id);
+        $category->update($request->all());
+
+        return redirect()->route('admin.categories.index');
+
     }
 
     /**
