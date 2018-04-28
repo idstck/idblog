@@ -83,4 +83,21 @@ class CategoriesController extends Controller
     {
         //
     }
+
+    public function dataTable()
+    {
+        $categories = Category::query();
+
+        return DataTables::of($categories)
+            ->addColumn('action', function ($categories) {
+                return view('layouts.admin.partials._action', [
+                    'model' => $categories,
+                    'show_url' => route('admin.categories.show', $categories->id),
+                    'edit_url' => route('admin.categories.edit', $categories->id),
+                    'delete_url' => route('admin.categories.destroy', $categories->id)
+                ]);
+            })
+            ->rawColumns(['action'])
+            ->make(true);
+    }
 }

@@ -36,3 +36,4 @@ Route::resource('/admin/users', 'UsersController', ['as' => 'admin']);
 Route::resource('/admin/categories', 'CategoriesController', ['as' => 'admin']);
 
 Route::get('/api/datatable/users', 'UsersController@dataTable')->name('api.datatable.users');
+Route::get('/api/datatable/categories', 'CategoriesController@dataTable')->name('api.datatable.categories');
