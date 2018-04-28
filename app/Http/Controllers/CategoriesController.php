@@ -99,7 +99,8 @@ class CategoriesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        if (! Category::destroy($id)) return redirect()->back();
+        return redirect()->route('admin.categories.index');
     }
 
     public function dataTable()
