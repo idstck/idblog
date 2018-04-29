@@ -60,4 +60,21 @@
 <!-- Responsive examples -->
 <script src="{{ asset('assets/blog-admin/vendor/datatables/dataTables.responsive.min.js') }}"></script>
 <script src="{{ asset('assets/blog-admin/vendor/datatables/responsive.bootstrap4.min.js') }}"></script>
+<script>
+    $(document).ready(function () {
+        $("#dataTable").DataTable({
+            processing: true,
+            serverSide: true,
+            ajax: "{{ route('api.datatable.posts') }}",
+            columns: [
+                {data: 'id', name: 'id'},
+                {data: 'title', name: 'title'},
+                {data: 'author', name: 'author'},
+                {data: 'category', name: 'category'},
+                {data: 'published_at', name: 'published_at'},
+                {data: 'action', name: 'action', orderable: false, searchable: false},
+            ]
+        });
+    });
+</script>
 @endsection
