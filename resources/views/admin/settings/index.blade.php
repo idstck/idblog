@@ -13,7 +13,7 @@
           <div class="row">
               <div class="col-md-12">
                   <div class="card">
-                    {!! Form::model($setting, ['method' => 'POST']) !!}
+                    {!! Form::model($setting, ['route' => 'admin.settings.store', 'method' => 'POST']) !!}
                       <div class="card-header text-white bg-primary">
                           Setting
                       </div>
