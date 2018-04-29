@@ -36,7 +36,19 @@ class PostsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'category_id' => 'required',
+            'title' => 'required|string|min:5',
+            'body' => 'required|min:20',
+            'status' => 'required',
+            'published_at' => 'required'
+        ]);
+        $request['slug'] = str_slug($request->get('title'), '-');
+        $request['user_id'] = $request->user()->id;
+
+        Post::create($request->all());
+
+        return redirect()->route('admin.posts.index');
     }
 
     /**

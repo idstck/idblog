@@ -34,7 +34,7 @@
             <div class="card-body">
                 <div class="form-group">
                     <label for="published_at">Date</label>
-                    {!! Form::text('published_at', date("Y-m-d H:i:s"), ['id' => 'datetime', 'class' => $errors->has('published_at') ? 'form-control is-invalid' : 'form-control', 'readonlybody']) !!}
+                    {!! Form::text('published_at', date("Y-m-d H:i:s"), ['id' => 'datetime', 'class' => $errors->has('published_at') ? 'form-control is-invalid' : 'form-control', 'readonly']) !!}
                     @if ($errors->has('published_at'))
                         <span class="invalid-feedback">
                             <strong>{{ $errors->first('published_at') }}</strong>
