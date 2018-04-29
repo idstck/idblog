@@ -36,6 +36,8 @@ Route::resource('/admin/users', 'UsersController', ['as' => 'admin']);
 Route::resource('/admin/categories', 'CategoriesController', ['as' => 'admin']);
 Route::resource('/admin/posts', 'PostsController', ['as' => 'admin']);
 
+Route::get('/admin/settings', 'SettingsController@index')->name('admin.settings.index');
+
 Route::get('/api/datatable/users', 'UsersController@dataTable')->name('api.datatable.users');
 Route::get('/api/datatable/categories', 'CategoriesController@dataTable')->name('api.datatable.categories');
 Route::get('/api/datatable/posts', 'PostsController@dataTable')->name('api.datatable.posts');
