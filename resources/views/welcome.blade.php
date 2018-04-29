@@ -1,95 +1,92 @@
-<!doctype html>
-<html lang="{{ app()->getLocale() }}">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layouts.blog.app')
 
-        <title>Laravel</title>
-
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
-
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Raleway', sans-serif;
-                font-weight: 100;
-                height: 100vh;
-                margin: 0;
-            }
-
-            .full-height {
-                height: 100vh;
-            }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 12px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-                        <a href="{{ route('register') }}">Register</a>
-                    @endauth
+@section('content')
+<!-- Hero Section-->
+<section style="background: url({{ asset('assets/blog/img/hero.jpg') }}); background-size: cover; background-position: center center" class="hero">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-7">
+          <h1>IDBlog - A simple blog by laravel framework</h1><a href="#" class="hero-link">Discover More</a>
+        </div>
+      </div><a href=".intro" class="continue link-scroll"><i class="fa fa-long-arrow-down"></i> Scroll Down</a>
+    </div>
+</section>
+<!-- Intro Section-->
+<section class="intro">
+    <div class="container">
+        <div class="row">
+        <div class="col-lg-8">
+            <h2 class="h3">Some great intro here</h2>
+            <p class="text-big">Place a nice <strong>introduction</strong> here <strong>to catch reader's attention</strong>. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderi.</p>
+        </div>
+        </div>
+    </div>
+</section>
+<section class="featured-posts no-padding-top">
+    <div class="container">
+        <!-- Post-->
+        <div class="row d-flex align-items-stretch">
+            <div class="text col-lg-7">
+                <div class="text-inner d-flex align-items-center">
+                <div class="content">
+                    <header class="post-header">
+                    <div class="category"><a href="#">Business</a><a href="#">Technology</a></div><a href="post.html">
+                        <h2 class="h4">Alberto Savoia Can Teach You About Interior</h2></a>
+                    </header>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrude consectetur adipisicing elit, sed do eiusmod tempor incididunt.</p>
+                    <footer class="post-footer d-flex align-items-center"><a href="#" class="author d-flex align-items-center flex-wrap">
+                        <div class="avatar"><img src="{{ asset('assets/blog/img/avatar-1.jpg') }}" alt="..." class="img-fluid"></div>
+                        <div class="title"><span>John Doe</span></div></a>
+                    <div class="date"><i class="icon-clock"></i> 2 months ago</div>
+                    <div class="comments"><i class="icon-comment"></i>12</div>
+                    </footer>
                 </div>
-            @endif
-
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
                 </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+            </div>
+            <div class="image col-lg-5"><img src="{{ asset('assets/blog/img/featured-pic-1.jpeg') }}" alt="..."></div>
+        </div>
+        <!-- Post        -->
+        <div class="row d-flex align-items-stretch">
+            <div class="image col-lg-5"><img src="{{ asset('assets/blog/img/featured-pic-2.jpeg') }}" alt="..."></div>
+            <div class="text col-lg-7">
+                <div class="text-inner d-flex align-items-center">
+                <div class="content">
+                    <header class="post-header">
+                    <div class="category"><a href="#">Business</a><a href="#">Technology</a></div><a href="post.html">
+                        <h2 class="h4">Alberto Savoia Can Teach You About Interior</h2></a>
+                    </header>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrude consectetur adipisicing elit, sed do eiusmod tempor incididunt.</p>
+                    <footer class="post-footer d-flex align-items-center"><a href="#" class="author d-flex align-items-center flex-wrap">
+                        <div class="avatar"><img src="{{ asset('assets/blog/img/avatar-2.jpg') }}" alt="..." class="img-fluid"></div>
+                        <div class="title"><span>John Doe</span></div></a>
+                    <div class="date"><i class="icon-clock"></i> 2 months ago</div>
+                    <div class="comments"><i class="icon-comment"></i>12</div>
+                    </footer>
+                </div>
                 </div>
             </div>
         </div>
-    </body>
-</html>
+        <!-- Post                            -->
+        <div class="row d-flex align-items-stretch">
+            <div class="text col-lg-7">
+                <div class="text-inner d-flex align-items-center">
+                <div class="content">
+                    <header class="post-header">
+                    <div class="category"><a href="#">Business</a><a href="#">Technology</a></div><a href="post.html">
+                        <h2 class="h4">Alberto Savoia Can Teach You About Interior</h2></a>
+                    </header>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrude consectetur adipisicing elit, sed do eiusmod tempor incididunt.</p>
+                    <footer class="post-footer d-flex align-items-center"><a href="#" class="author d-flex align-items-center flex-wrap">
+                        <div class="avatar"><img src="{{ asset('assets/blog/img/avatar-3.jpg') }}" alt="..." class="img-fluid"></div>
+                        <div class="title"><span>John Doe</span></div></a>
+                    <div class="date"><i class="icon-clock"></i> 2 months ago</div>
+                    <div class="comments"><i class="icon-comment"></i>12</div>
+                    </footer>
+                </div>
+                </div>
+            </div>
+            <div class="image col-lg-5"><img src="{{ asset('assets/blog/img/featured-pic-3.jpeg') }}" alt="..."></div>
+        </div>
+    </div>
+</section>
+@endsection
