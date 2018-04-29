@@ -38,7 +38,7 @@ class PostsController extends Controller
     {
         $this->validate($request, [
             'category_id' => 'required',
-            'title' => 'required|string|min:5',
+            'title' => 'required|string|min:5|unique:posts',
             'body' => 'required|min:20',
             'status' => 'required',
             'published_at' => 'required'
@@ -84,7 +84,19 @@ class PostsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'category_id' => 'required',
+            'title' => 'required|string|min:5|unique:posts,title,' . $id,
+            'body' => 'required|min:20',
+            'status' => 'required',
+            'published_at' => 'required'
+        ]);
+        $request['slug'] = str_slug($request->get('title'), '-');
+
+        $post = Post::findOrFail($id);
+        $post->update($request->all());
+
+        return redirect()->route('admin.posts.index');
     }
 
     /**
