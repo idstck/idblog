@@ -15,6 +15,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/blog', function () {
+    return view('blog');
+});
+
 // Auth::routes();
 
 // Authentication Routes...
