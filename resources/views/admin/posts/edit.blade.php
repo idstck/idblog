@@ -4,12 +4,12 @@
     <div class="container-fluid">
         <!-- Breadcrumbs-->
         <ol class="breadcrumb">
-            <li class="breadcrumb-item">
-                <a href="#">Posts</a>
-            </li>
-            <li class="breadcrumb-item active">Add New</li>
+          <li class="breadcrumb-item">
+            <a href="#">Posts</a>
+          </li>
+          <li class="breadcrumb-item active">Edit</li>
         </ol>
-        {!! Form::open(['route' => 'admin.posts.store', 'method' => 'POST']) !!}
+        {!! Form::model($post, ['route' => ['admin.posts.update', $post->id], 'method' => 'PUT']) !!}
             @include('admin.posts._form')
         {!! Form::close() !!}
     </div>
