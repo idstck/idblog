@@ -107,7 +107,8 @@ class PostsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        if (! Post::destroy($id)) return redirect()->back();
+        return redirect()->route('admin.posts.index');
     }
 
     public function dataTable()
