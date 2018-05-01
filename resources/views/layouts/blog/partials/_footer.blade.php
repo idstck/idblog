@@ -2,16 +2,16 @@
         <div class="row">
           <div class="col-md-4">
             <div class="logo">
-              <h6 class="text-white">IDBlog</h6>
+              <h6 class="text-white">{{ $setting->title }}</h6>
             </div>
             <div class="contact-details">
-              <p>53 Broadway, Broklyn, NY 11249</p>
-              <p>Phone: (020) 123 456 789</p>
-              <p>Email: <a href="mailto:info@company.com">Info@Company.com</a></p>
+              <p>{{ $setting->address }}</p>
+              <p>Phone: {{ $setting->phone }}</p>
+              <p>Email: <a href="mailto:{{ $setting->email }}">{{ $setting->email }}</a></p>
               <ul class="social-menu">
-                <li class="list-inline-item"><a href="#"><i class="fa fa-facebook"></i></a></li>
-                <li class="list-inline-item"><a href="#"><i class="fa fa-twitter"></i></a></li>
-                <li class="list-inline-item"><a href="#"><i class="fa fa-instagram"></i></a></li>
+                <li class="list-inline-item"><a href="{{ $setting->so_facebook }}"><i class="fa fa-facebook"></i></a></li>
+                <li class="list-inline-item"><a href="{{ $setting->so_twitter }}"><i class="fa fa-twitter"></i></a></li>
+                <li class="list-inline-item"><a href="{{ $setting->so_instagram }}"><i class="fa fa-instagram"></i></a></li>
               </ul>
             </div>
           </div>
@@ -32,19 +32,16 @@
             </div>
           </div>
           <div class="col-md-4">
-            <div class="latest-posts"><a href="#">
-                <div class="post d-flex align-items-center">
-                  <div class="image"><img src="{{ asset('assets/blog/img/small-thumbnail-1.jpg') }}" alt="..." class="img-fluid"></div>
-                  <div class="title"><strong>Hotels for all budgets</strong><span class="date last-meta">October 26, 2016</span></div>
-                </div></a><a href="#">
-                <div class="post d-flex align-items-center">
-                  <div class="image"><img src="{{ asset('assets/blog/img/small-thumbnail-2.jpg') }}" alt="..." class="img-fluid"></div>
-                  <div class="title"><strong>Great street atrs in London</strong><span class="date last-meta">October 26, 2016</span></div>
-                </div></a><a href="#">
-                <div class="post d-flex align-items-center">
-                  <div class="image"><img src="{{ asset('assets/blog/img/small-thumbnail-3.jpg') }}" alt="..." class="img-fluid"></div>
-                  <div class="title"><strong>Best coffee shops in Sydney</strong><span class="date last-meta">October 26, 2016</span></div>
-                </div></a></div>
+            <div class="latest-posts">
+              @foreach ($posts->inRandomOrder()->limit(3)->get() as $post)
+                <a href="#">
+                  <div class="post d-flex align-items-center">
+                    <div class="image"><img src="{{ asset($post->featured) }}" alt="..." class="img-fluid"></div>
+                    <div class="title"><strong>{{ $post->title }}</strong><span class="date last-meta">{{ $post->published_at }}</span></div>
+                  </div>
+                </a>
+              @endforeach
+            </div>
           </div>
         </div>
     </div>
