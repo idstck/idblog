@@ -32,8 +32,10 @@
                         <div class="text-inner d-flex align-items-center">
                         <div class="content">
                             <header class="post-header">
-                            <div class="category"><a href="#">{{ $post->category->title }}</a></div><a href="post.html">
-                                <h2 class="h4">{{ $post->title }}</h2></a>
+                            <div class="category"><a href="#">{{ $post->category->title }}</a></div>
+                            <a href="{{ url('/blog/' . $post->slug) }}">
+                                <h2 class="h4">{{ $post->title }}</h2>
+                            </a>
                             </header>
                             {!! substr($post->body, 0, 200) !!} ...
                             <footer class="post-footer d-flex align-items-center"><a href="#" class="author d-flex align-items-center flex-wrap">
@@ -55,8 +57,10 @@
                         <div class="text-inner d-flex align-items-center">
                                 <div class="content">
                                     <header class="post-header">
-                                    <div class="category"><a href="#">{{ $post->category->title }}</a></div><a href="post.html">
-                                        <h2 class="h4">{{ $post->title }}</h2></a>
+                                    <div class="category"><a href="#">{{ $post->category->title }}</a></div>
+                                    <a href="{{ url('/blog/' . $post->slug) }}">
+                                        <h2 class="h4">{{ $post->title }}</h2>
+                                    </a>
                                     </header>
                                     {!! substr($post->body, 0, 200) !!} ...
                                     <footer class="post-footer d-flex align-items-center"><a href="#" class="author d-flex align-items-center flex-wrap">

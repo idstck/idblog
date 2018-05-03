@@ -10,12 +10,12 @@
                     @foreach ($posts as $post)
                         <!-- post -->
                         <div class="post col-xl-6">
-                            <div class="post-thumbnail"><a href="post.html"><img src="{{ asset($post->featured) }}" alt="..." class="img-fluid"></a></div>
+                            <div class="post-thumbnail"><a href="{{ url('/blog/' . $post->slug) }}"><img src="{{ asset($post->featured) }}" alt="..." class="img-fluid"></a></div>
                             <div class="post-details">
                                 <div class="post-meta d-flex justify-content-between">
                                     <div class="date meta-last">{{ $post->published_at }}</div>
                                     <div class="category"><a href="#">{{ $post->category->title }}</a></div>
-                                </div><a href="post.html">
+                                </div><a href="{{ url('/blog/' . $post->slug) }}">
                                     <h3 class="h4">{{ $post->title }}</h3></a>
                                 {!! substr($post->body, 0, 150) !!} ...
                                 <footer class="post-footer d-flex align-items-center"><a href="#" class="author d-flex align-items-center flex-wrap">
