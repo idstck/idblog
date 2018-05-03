@@ -33,7 +33,7 @@
           </div>
           <div class="col-md-4">
             <div class="latest-posts">
-              @foreach ($posts->inRandomOrder()->limit(3)->get() as $post)
+              @foreach (\App\Post::where('status',1)->inRandomOrder()->limit(3)->get() as $post)
                 <a href="#">
                   <div class="post d-flex align-items-center">
                     <div class="image"><img src="{{ asset($post->featured) }}" alt="..." class="img-fluid"></div>

@@ -16,14 +16,14 @@ class IndexController extends Controller
     public function index()
     {
         $setting = $this->setting();
-        $posts = Post::where('status', 1);
+        $posts = Post::where('status', 1)->orderBy('published_at', 'DESC')->limit(3)->get();
         return view('welcome', compact('setting', 'posts'));
     }
 
     public function blog()
     {
         $setting = $this->setting();
-        $posts = Post::where('status', 1);
+        $posts = Post::where('status', 1)->orderBy('published_at', 'DESC')->paginate(4);
         return view('blog', compact('setting', 'posts'));
     }
 }

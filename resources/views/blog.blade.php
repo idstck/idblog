@@ -7,7 +7,7 @@
         <main class="posts-listing col-lg-8"> 
             <div class="container">
                 <div class="row">
-                    @foreach ($posts->orderBy('published_at', 'DESC')->get() as $post)
+                    @foreach ($posts as $post)
                         <!-- post -->
                         <div class="post col-xl-6">
                             <div class="post-thumbnail"><a href="post.html"><img src="{{ asset($post->featured) }}" alt="..." class="img-fluid"></a></div>
@@ -30,13 +30,7 @@
                 </div>
                 <!-- Pagination -->
                 <nav aria-label="Page navigation example">
-                    <ul class="pagination pagination-template d-flex justify-content-center">
-                        <li class="page-item"><a href="#" class="page-link"> <i class="fa fa-angle-left"></i></a></li>
-                        <li class="page-item"><a href="#" class="page-link active">1</a></li>
-                        <li class="page-item"><a href="#" class="page-link">2</a></li>
-                        <li class="page-item"><a href="#" class="page-link">3</a></li>
-                        <li class="page-item"><a href="#" class="page-link"> <i class="fa fa-angle-right"></i></a></li>
-                    </ul>
+                    {!! $posts->links('layouts.blog.partials._pagination') !!}
                 </nav>
             </div>
         </main>

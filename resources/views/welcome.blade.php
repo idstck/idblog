@@ -24,7 +24,7 @@
 </section>
 <section class="featured-posts no-padding-top">
     <div class="container">
-        <?php $index = 0; foreach($posts->orderBy('published_at', 'DESC')->limit(3)->get() as $post) : $index++ ?>
+        <?php $index = 0; foreach($posts as $post) : $index++ ?>
             @if ($index % 2 != 0)
                 <!-- Post-->
                 <div class="row d-flex align-items-stretch">
