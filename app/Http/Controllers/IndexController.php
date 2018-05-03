@@ -19,4 +19,11 @@ class IndexController extends Controller
         $posts = Post::where('status', 1);
         return view('welcome', compact('setting', 'posts'));
     }
+
+    public function blog()
+    {
+        $setting = $this->setting();
+        $posts = Post::where('status', 1);
+        return view('blog', compact('setting', 'posts'));
+    }
 }
