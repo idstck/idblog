@@ -29,7 +29,7 @@
             </ul>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Comments">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="{{ route('admin.comments.index') }}">
             <i class="fa fa-fw fa-comments"></i>
             <span class="nav-link-text">Comments</span>
             </a>
