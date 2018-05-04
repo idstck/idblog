@@ -25,16 +25,25 @@
                       <div class="post-body">
                         {!! $post->body !!}
                       </div>
-                      <div class="posts-nav d-flex justify-content-between align-items-stretch flex-column flex-md-row"><a href="#" class="prev-post text-left d-flex align-items-center">
-                          <div class="icon prev"><i class="fa fa-angle-left"></i></div>
-                          <div class="text"><strong class="text-primary">Previous Post </strong>
-                            <h6>I Bought a Wedding Dress.</h6>
-                          </div></a><a href="#" class="next-post text-right d-flex align-items-center justify-content-end">
-                          <div class="text"><strong class="text-primary">Next Post </strong>
-                            <h6>I Bought a Wedding Dress.</h6>
-                          </div>
-                          <div class="icon next"><i class="fa fa-angle-right">   </i></div></a>
-                        </div>
+                      <div class="posts-nav d-flex justify-content-between align-items-stretch flex-column flex-md-row">
+                          @if ($prev)
+                            <a href="{{ url('/blog/' . $prev->slug) }}" class="prev-post text-left d-flex align-items-center">
+                              <div class="icon prev"><i class="fa fa-angle-left"></i></div>
+                              <div class="text"><strong class="text-primary">Previous Post </strong>
+                                <h6>{{ $prev->title }}.</h6>
+                              </div>
+                            </a>
+                          @endif
+
+                          @if ($next)
+                            <a href="{{ url('/blog/' . $next->slug) }}" class="next-post text-right d-flex align-items-center justify-content-end">
+                              <div class="text"><strong class="text-primary">Next Post </strong>
+                                <h6>{{ $next->title }}.</h6>
+                              </div>
+                              <div class="icon next"><i class="fa fa-angle-right">   </i></div>
+                            </a>
+                          @endif
+                      </div>
                       <div class="post-comments">
                         <header>
                           <h3 class="h6">Post Comments<span class="no-of-comments">(3)</span></h3>

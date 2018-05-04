@@ -31,6 +31,14 @@ class IndexController extends Controller
     {
         $setting = $this->setting();
         $post = Post::where('slug', $slug)->first();
-        return view('show', compact('setting', 'post'));
+
+        $prev = Post::where('id', '<', $post->id)
+                ->latest('id')
+                ->first();
+
+        $next = Post::where('id', '>', $post->id)
+                ->first();
+
+        return view('show', compact('setting', 'post', 'prev', 'next'));
     }
 }
