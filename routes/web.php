@@ -16,6 +16,8 @@ Route::get('/', 'IndexController@index');
 Route::get('/blog', 'IndexController@blog');
 Route::get('/blog/{slug}', 'IndexController@show');
 
+Route::post('/blog/{slug}/comment', 'IndexController@comment')->name('post.comment');
+
 // Auth::routes();
 
 // Authentication Routes...

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Setting;
 use App\Post;
+use App\Comment;
 use Illuminate\Http\Request;
 
 class IndexController extends Controller
@@ -40,5 +41,24 @@ class IndexController extends Controller
                 ->first();
 
         return view('show', compact('setting', 'post', 'prev', 'next'));
+    }
+
+    public function comment(Request $request, $slug)
+    {
+        $this->validate($request, [
+            'name' => 'required|min:3',
+            'email' => 'required|email',
+            'body' => 'required|min:5'
+        ]);
+
+        $post = Post::where('slug', $slug)->first();
+
+        $request['post_id'] = $post->id;
+        $request['status'] = 0;
+        Comment::create($request->all());
+
+        // return redirect('/blog/' . $slug);
+        return redirect()->back();
+
     }
 }

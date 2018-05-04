@@ -86,22 +86,38 @@
                         <header>
                           <h3 class="h6">Leave a reply</h3>
                         </header>
-                        <form action="#" class="commenting-form">
-                          <div class="row">
+                        {!! Form::open(['route' => ['post.comment', $post->slug], 'method' => 'POST', 'class' => 'commenting-form']) !!}
+                        {{ csrf_field() }}  
+                        <div class="row">
                             <div class="form-group col-md-6">
-                              <input type="text" name="username" id="username" placeholder="Name" class="form-control">
+                              {!! Form::text('name', null, ['class' => $errors->has('name') ? 'form-control is-invalid' : 'form-control', 'placeholder' => 'Enter Your Name', 'required']) !!}
+                              @if ($errors->has('name'))
+                                <span class="invalid-feedback">
+                                  <strong>{{ $errors->first('name') }}</strong>
+                                </span>
+                              @endif
                             </div>
                             <div class="form-group col-md-6">
-                              <input type="email" name="username" id="useremail" placeholder="Email Address (will not be published)" class="form-control">
+                              {!! Form::email('email', null, ['class' => $errors->has('email') ? 'form-control is-invalid' : 'form-control', 'placeholder' => 'Email Address (will not be published)', 'required']) !!}
+                              @if ($errors->has('email'))
+                                <span class="invalid-feedback">
+                                  <strong>{{ $errors->first('email') }}</strong>
+                                </span>
+                              @endif
                             </div>
                             <div class="form-group col-md-12">
-                              <textarea name="usercomment" id="usercomment" placeholder="Type your comment" class="form-control"></textarea>
+                              {!! Form::textarea('body', null, ['id' => 'textarea', 'class' => $errors->has('body') ? 'form-control is-invalid' : 'form-control', 'placeholder' => 'Type your comment', 'required']) !!}
+                              @if ($errors->has('body'))
+                                <span class="invalid-feedback">
+                                  <strong>{{ $errors->first('body') }}</strong>
+                                </span>
+                              @endif
                             </div>
                             <div class="form-group col-md-12">
                               <button type="submit" class="btn btn-secondary">Submit Comment</button>
                             </div>
                           </div>
-                        </form>
+                        {!! Form::close() !!}
                       </div>
                     </div>
                   </div>
