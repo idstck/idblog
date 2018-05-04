@@ -47,7 +47,8 @@ class CommentsController extends Controller
      */
     public function show($id)
     {
-        //
+        $comment = Comment::findOrFail($id);
+        return view('admin.comments.show', compact('comment'));
     }
 
     /**
