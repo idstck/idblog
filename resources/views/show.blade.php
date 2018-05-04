@@ -19,7 +19,7 @@
                         <div class="d-flex align-items-center flex-wrap">       
                           <div class="date"><i class="icon-clock"></i> {{ $post->published_at }}</div>
                           
-                          <div class="comments meta-last"><i class="icon-comment"></i>12</div>
+                          <div class="comments meta-last"><i class="icon-comment"></i>{{ $post->comments()->count() }}</div>
                         </div>
                       </div>
                       <div class="post-body">
