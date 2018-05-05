@@ -72,7 +72,14 @@ class CommentsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'status' => 'required'
+        ]);
+
+        $comment = Comment::findOrFail($id);
+        $comment->update($request->all());
+
+        return redirect()->route('admin.comments.index');
     }
 
     /**
