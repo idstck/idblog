@@ -90,7 +90,9 @@ class CommentsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        if(!Comment::destroy($id)) return redirect()->back();
+
+        return redirect()->route('admin.comments.index');
     }
 
     public function dataTable()
