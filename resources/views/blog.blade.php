@@ -14,7 +14,7 @@
                             <div class="post-details">
                                 <div class="post-meta d-flex justify-content-between">
                                     <div class="date meta-last">{{ $post->published_at }}</div>
-                                    <div class="category"><a href="#">{{ $post->category->title }}</a></div>
+                                    <div class="category"><a href="{{ url('/blog/category/' . $post->category->slug) }}">{{ $post->category->title }}</a></div>
                                 </div><a href="{{ url('/blog/' . $post->slug) }}">
                                     <h3 class="h4">{{ $post->title }}</h3></a>
                                 {!! substr($post->body, 0, 150) !!} ...

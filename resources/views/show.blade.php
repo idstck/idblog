@@ -10,7 +10,7 @@
                     <div class="post-thumbnail"><img src="{{ asset($post->featured) }}" alt="..." class="img-fluid"></div>
                     <div class="post-details">
                       <div class="post-meta d-flex justify-content-between">
-                        <div class="category"><a href="#">{{ $post->category->title }}</a></div>
+                        <div class="category"><a href="{{ url('/blog/category/' . $post->category->slug) }}">{{ $post->category->title }}</a></div>
                       </div>
                       <h1>{{ $post->title }}<a href="#"><i class="fa fa-bookmark-o"></i></a></h1>
                       <div class="post-footer d-flex align-items-center flex-column flex-sm-row"><a href="#" class="author d-flex align-items-center flex-wrap">

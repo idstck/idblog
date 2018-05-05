@@ -32,7 +32,7 @@
                         <div class="text-inner d-flex align-items-center">
                         <div class="content">
                             <header class="post-header">
-                            <div class="category"><a href="#">{{ $post->category->title }}</a></div>
+                            <div class="category"><a href="{{ url('/blog/category/' . $post->category->slug) }}">{{ $post->category->title }}</a></div>
                             <a href="{{ url('/blog/' . $post->slug) }}">
                                 <h2 class="h4">{{ $post->title }}</h2>
                             </a>
@@ -57,7 +57,7 @@
                         <div class="text-inner d-flex align-items-center">
                                 <div class="content">
                                     <header class="post-header">
-                                    <div class="category"><a href="#">{{ $post->category->title }}</a></div>
+                                    <div class="category"><a href="{{ url('/blog/category/' . $post->category->slug) }}">{{ $post->category->title }}</a></div>
                                     <a href="{{ url('/blog/' . $post->slug) }}">
                                         <h2 class="h4">{{ $post->title }}</h2>
                                     </a>
