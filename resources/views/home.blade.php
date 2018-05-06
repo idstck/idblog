@@ -17,7 +17,7 @@
                     <div class="card-body-icon">
                         <i class="fa fa-fw fa-list"></i>
                     </div>
-                    <div class="mr-5">11 Posts!</div>
+                    <div class="mr-5">{{ \App\Post::count() }} Posts!</div>
                 </div>
                 <a class="card-footer text-white clearfix small z-1" href="#">
                     <span class="float-left">View Details</span>
@@ -33,7 +33,7 @@
                     <div class="card-body-icon">
                         <i class="fa fa-fw fa-comments"></i>
                     </div>
-                    <div class="mr-5">26 New Comments!</div>
+                    <div class="mr-5">{{ \App\Comment::count() }} New Comments!</div>
                 </div>
                 <a class="card-footer text-white clearfix small z-1" href="#">
                     <span class="float-left">View Details</span>
@@ -56,7 +56,7 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    <h5 class="card-title">Welcome, Admin</h5>
+                    <h5 class="card-title">Welcome, {{ Auth::user()->name }}</h5>
                 </div>
             </div>
         </div>

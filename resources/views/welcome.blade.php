@@ -41,7 +41,7 @@
                             <footer class="post-footer d-flex align-items-center"><a href="#" class="author d-flex align-items-center flex-wrap">
                                 <div class="avatar"><img src="{{ asset($post->user->avatar) }}" alt="..." class="img-fluid"></div>
                                 <div class="title"><span>{{ $post->user->name }}</span></div></a>
-                            <div class="date"><i class="icon-clock"></i> {{ $post->published_at }}</div>
+                            <div class="date"><i class="icon-clock"></i> {{ $post->date }}</div>
                             <div class="comments"><i class="icon-comment"></i>{{ $post->comments()->count() }}</div>
                             </footer>
                         </div>
@@ -66,7 +66,7 @@
                                     <footer class="post-footer d-flex align-items-center"><a href="#" class="author d-flex align-items-center flex-wrap">
                                         <div class="avatar"><img src="{{ asset($post->user->avatar) }}" alt="..." class="img-fluid"></div>
                                         <div class="title"><span>{{ $post->user->name }}</span></div></a>
-                                    <div class="date"><i class="icon-clock"></i> {{ $post->published_at }}</div>
+                                    <div class="date"><i class="icon-clock"></i> {{ $post->date }}</div>
                                     <div class="comments"><i class="icon-comment"></i>{{ $post->comments()->count() }}</div>
                                     </footer>
                                 </div>
