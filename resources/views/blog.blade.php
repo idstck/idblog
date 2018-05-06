@@ -30,7 +30,7 @@
                 </div>
                 <!-- Pagination -->
                 <nav aria-label="Page navigation example">
-                    {!! $posts->links('layouts.blog.partials._pagination') !!}
+                    {!! $posts->appends(request()->query())->links('layouts.blog.partials._pagination') !!}
                 </nav>
             </div>
         </main>

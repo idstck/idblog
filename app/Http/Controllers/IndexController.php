@@ -37,6 +37,13 @@ class IndexController extends Controller
         return view('blog', compact('setting', 'posts'));
     }
 
+    public function blogSearch(Request $request)
+    {
+        $setting = $this->setting();
+        $posts = Post::search($request->get('q'))->where('status', 1)->orderBy('published_at', 'DESC')->paginate(4);
+        return view('blog', compact('posts', 'setting'));
+    }
+
     public function show($slug)
     {
         $setting = $this->setting();
