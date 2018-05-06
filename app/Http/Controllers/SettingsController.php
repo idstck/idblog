@@ -7,6 +7,12 @@ use Illuminate\Http\Request;
 
 class SettingsController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('role:admin');
+    }
+
     public function index()
     {
         $setting = Setting::first();
